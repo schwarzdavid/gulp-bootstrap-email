@@ -44,4 +44,6 @@ _(Be aware, that inlining images with base64 will not work with Outlook)_
 
 # Options
 
-You cann pass `style` and `head`. For further details, see the [Bootstrap Email docs](https://github.com/schwarzdavid/bootstrap-email)
+You cann pass `style` and `head`. Both can be a string or function which returns a string. If you pass a function, the parameters `path`, `basename`, `extension` and `filename` will be passed as an object. 
+
+For further details, see the [Bootstrap Email docs](https://github.com/schwarzdavid/bootstrap-email)
