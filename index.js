@@ -15,7 +15,7 @@ const gulpBootstrapEmail = ({style, head} = {}) => through.obj(async (file, enc,
 	}
 
 	const extension = path.extname(file.path);
-	const basename = path.basename(file.path, ext);
+	const basename = path.basename(file.path, extension);
 	const filename = path.basename(file.path);
 
 	const fileName = {
@@ -25,18 +25,23 @@ const gulpBootstrapEmail = ({style, head} = {}) => through.obj(async (file, enc,
 		filename
 	};
 
-	if(typeof head === 'function'){
-		head = head(fileName);
+	let _head = head;
+	let _style = style;
+
+	if(typeof _head === 'function'){
+		_head = _head(fileName);
 	}
 
-	if(typeof style === 'function') {
-		style = style(fileName);
+	if(typeof _style === 'function') {
+		_style = _style(fileName);
 	}
 
 	try {
 		const content = file.contents.toString();
 		const bootstrapEmail = new BootstrapEmail({
-			head, style, content
+			head: _head,
+			style: _style,
+			content
 		});
 
 		file.contents = Buffer.from(bootstrapEmail.compile());
