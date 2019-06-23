@@ -1,6 +1,6 @@
 {
 	"name": "gulp-bootstrap-email",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"description": "Compile a bootstrap-like template into a legit email markup with gulp and bootstrap-email",
 	"keywords": [
 		"gulp",
@@ -14,7 +14,7 @@
 	"author": "David Schwarz <schwarz.david10@gmail.com>",
 	"license": "MIT",
 	"dependencies": {
-		"bootstrap-email": "^1.0.7",
+		"bootstrap-email": "^1.0.8",
 		"plugin-error": "^1.0.1",
 		"through2": "^3.0.1"
 	},
