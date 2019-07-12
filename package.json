@@ -1,6 +1,6 @@
 {
 	"name": "gulp-bootstrap-email",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"description": "Compile a bootstrap-like template into a legit email markup with gulp and bootstrap-email",
 	"keywords": [
 		"gulp",
