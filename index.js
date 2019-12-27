@@ -5,7 +5,7 @@ const path = require('path');
 
 const PLUGIN_NAME = require('./package').name;
 
-const gulpBootstrapEmail = ({style, head, containerWidthFallback} = {}) => through.obj(async (file, enc, cb) => {
+const gulpBootstrapEmail = ({style, head} = {}) => through.obj(async (file, enc, cb) => {
 	if (file.isNull()) {
 		return cb(null, file);
 	}
@@ -38,11 +38,9 @@ const gulpBootstrapEmail = ({style, head, containerWidthFallback} = {}) => throu
 
 	try {
 		const content = file.contents.toString();
-		const bootstrapEmail = new BootstrapEmail({
+		const bootstrapEmail = new BootstrapEmail(content, {
 			head: _head,
-			style: _style,
-			containerWidthFallback,
-			content
+			style: _style
 		});
 
 		file.contents = Buffer.from(bootstrapEmail.compile());
